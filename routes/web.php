@@ -24,9 +24,11 @@ Route::get("/sobre-nos", "SobreNosController@sobreNos");
 Route::get("/contato", "ContatoController@contato");
 
 // nome, categoria, assunto, mensagem
-Route::get("/contato/{nome}/{categoria}/{assunto}/{mensagem}", function(string $nome, string $categoria, string $assunto, string $mensagem){
-    echo "Estamos aqui! Bem-vindo {$nome}. Sua categoria {$categoria} recebeu seu contato sobre {$assunto}, com a mensagem {$mensagem}";
-});
+Route::get("/contato/{nome?}/{idCategoria?}", 
+    function(string $nome="Desconhecido", int $idCategoria=1){
+        echo "Estamos aqui! Bem-vindo {$nome}. Sua categoria {$idCategoria}!";
+    }
+);
 // Route::get($uri, $callback);
 
 /* verbo http
