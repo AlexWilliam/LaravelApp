@@ -29,6 +29,15 @@ Route::get("/contato/{nome?}/{idCategoria?}",
         echo "Estamos aqui! Bem-vindo {$nome}. Sua categoria {$idCategoria}!";
     }
 );
+// nome, categoria, assunto, mensagem
+Route::get("/contato/{nome}/{idCategoria}", 
+    function(
+        string $nome="Desconhecido",
+        int $idCategoria=1
+    ){
+        echo "Estamos aqui! Bem-vindo {$nome}. Sua categoria {$idCategoria}!";
+    }
+)->where('nome', '[A-Za-z]+')->where("idCategoria", "[0-9]+");
 // Route::get($uri, $callback);
 
 /* verbo http
