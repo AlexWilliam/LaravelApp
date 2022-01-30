@@ -22,6 +22,14 @@ Route::get("/sobre-nos", "SobreNosController@sobreNos")->name("site.sobrenos");
 Route::get("/contato", "ContatoController@contato")->name("site.contato");
 Route::get("/login", function(){ return "Login"; })->name("site.login");
 
+Route::get("/rota1", function(){ 
+    return "Rota 1"; 
+})->name("site.rota1");
+Route::get("/rota2", function(){ 
+    return redirect()->route("site.rota1");
+})->name("site.rota2");
+
+//Route::redirect("/rota2", "/rota1");
 // /admin
 Route::prefix("/admin")->group(function(){
     
@@ -30,6 +38,10 @@ Route::prefix("/admin")->group(function(){
     Route::get("/fornecedores", function(){ return "fornecedores"; })->name("admin.fornecedores");
     Route::get("/produtos", function(){ return "produtos"; })->name("admin.produtos");
 
+});
+
+Route::fallback(function(){
+    return redirect()->route("site.index");
 });
 
 /*// nome, categoria, assunto, mensagem
