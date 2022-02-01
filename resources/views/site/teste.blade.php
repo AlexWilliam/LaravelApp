@@ -1,4 +1,4 @@
-<h3>Principal (view)</h3>
+<h3>Teste</h3>
 
 <ul>
     <li>
@@ -11,6 +11,10 @@
         <a href="{{route('site.contato')}}">Contato</a>
     </li>
     <li>
-        <a href="{{route('site.teste')}}">Teste</a>
+        <a href="">Teste</a>
     </li>
 </ul>
+
+P1 = {{$p1}}<br />
+P2 = {{$p2}}<br />
+Soma = {{$p1+$p2}}

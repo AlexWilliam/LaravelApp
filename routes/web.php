@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get("/teste/{p1}/{p2}", "TesteController@teste")->name("site.teste");
+
 /*Route::get('/', function () {
     return 'Olá, seja bem-vindo ao laravel!';
 });*/
@@ -21,23 +23,25 @@ Route::get("/", "PrincipalController@principal")->name("site.index");
 Route::get("/sobre-nos", "SobreNosController@sobreNos")->name("site.sobrenos");
 Route::get("/contato", "ContatoController@contato")->name("site.contato");
 Route::get("/login", function(){ return "Login"; })->name("site.login");
-
+/*
 Route::get("/rota1", function(){ 
     return "Rota 1"; 
 })->name("site.rota1");
 Route::get("/rota2", function(){ 
     return redirect()->route("site.rota1");
-})->name("site.rota2");
+})->name("site.rota2");*/
 
 //Route::redirect("/rota2", "/rota1");
 // /admin
-Route::prefix("/admin")->group(function(){
-    
+Route::prefix("/admin")->group(function(){    
     Route::get("/", function(){ return "admin"; })->name("admin");
     Route::get("/clientes", function(){ return "clientes"; })->name("admin.clientes");
-    Route::get("/fornecedores", function(){ return "fornecedores"; })->name("admin.fornecedores");
+    Route::get("/fornecedores", "FornecedorController@index");
     Route::get("/produtos", function(){ return "produtos"; })->name("admin.produtos");
 
+    Route::fallback(function(){
+        return redirect()->route("site.index");
+    });    
 });
 
 Route::fallback(function(){
