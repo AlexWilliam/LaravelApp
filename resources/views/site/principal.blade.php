@@ -11,6 +11,6 @@
         <a href="{{route('site.contato')}}">Contato</a>
     </li>
     <li>
-        <a href="{{route('site.teste')}}">Teste</a>
+        <a href="">Teste</a>
     </li>
 </ul>
