@@ -51,7 +51,7 @@ services:
 
     # queue
     queue:
-        container_name: especializati-queue
+        container_name: laravel-app-queue
         image: laravel-app/laravel-app
         restart: unless-stopped
         command: "php artisan queue:work"
